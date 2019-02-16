@@ -125,3 +125,5 @@ public class Home extends AppCompatActivity
         return true;
     }
 }
+
+//MISHU ASTA E VERSIUNEA NOUA
