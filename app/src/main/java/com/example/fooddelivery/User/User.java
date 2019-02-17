@@ -13,9 +13,10 @@ public class User {
     public User(String name, String password, String phone) {
         this.name = name;
         this.password = password;
-        this.Phone=phone;
+        Phone = phone;
     }
-    public String getPhone(){
+
+    public String getPhone() {
         return Phone;
     }
 
@@ -33,5 +34,9 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
     }
 }
