@@ -57,6 +57,8 @@ public class SignIn extends AppCompatActivity {
                         //Se primeste informatia utilizatorului
                         mDialog.dismiss();
                         User user = dataSnapshot.child(phone.getText().toString()).getValue(User.class);
+
+
                         if (user.getPassword().equals(password.getText().toString())) {
                             {
                                 Intent homeIntent = new Intent(SignIn.this,Home.class);

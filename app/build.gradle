@@ -19,6 +19,9 @@ android {
 }
 
 dependencies {
+    implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+    implementation 'com.readystatesoftware.sqliteasset:sqliteassethehelper:+'
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleCompatible
     implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
