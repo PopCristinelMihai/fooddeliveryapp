@@ -32,9 +32,9 @@ public class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View v) {
 
-        itemClickListener.onClick(view,getAdapterPosition(),false);
+        itemClickListener.onClick(v,getAdapterPosition(),false);
 
     }
 }

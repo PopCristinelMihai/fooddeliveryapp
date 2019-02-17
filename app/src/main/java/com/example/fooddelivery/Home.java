@@ -1,5 +1,6 @@
 package com.example.fooddelivery;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -43,6 +44,7 @@ public class Home extends AppCompatActivity
     RecyclerView recycler_menu;
     RecyclerView.LayoutManager layoutManager;
 
+    FirebaseRecyclerAdapter<Category, MenuViewHolder> adapter;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -96,7 +98,7 @@ public class Home extends AppCompatActivity
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void loadMenu() {
 
-                    FirebaseRecyclerAdapter<Category, MenuViewHolder> adapter = new FirebaseRecyclerAdapter<Category, MenuViewHolder>(Category.class, R.layout.menu_item, MenuViewHolder.class, category) {
+                    adapter=new FirebaseRecyclerAdapter<Category, MenuViewHolder>(Category.class, R.layout.menu_item, MenuViewHolder.class, category) {
                         @Override
                         protected void populateViewHolder(MenuViewHolder viewHolder, Category model, int position) {
                             viewHolder.txtMenuName.setText(model.getName());
@@ -106,7 +108,12 @@ public class Home extends AppCompatActivity
                             viewHolder.setItemClickListener(new ItemClickListener() {
                                 @Override
                                 public void onClick(View view, int position, boolean isLongClick) {
-                                    Toast.makeText(Home.this, "" + clickItem.getName(), Toast.LENGTH_SHORT).show();
+                                    //Primim ID categoriei si il trimitem la noua Activitate
+                                    Intent foodList = new Intent(Home.this,FoodList.class);
+
+                                    foodList.putExtra("CategoryId",adapter.getRef(position).getKey());
+                                    startActivity(foodList);
+
                                 }
                 });
 
