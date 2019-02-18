@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 import com.example.fooddelivery.Common.Common;
 import com.example.fooddelivery.Database.Database;
-import com.example.fooddelivery.User.Order;
-import com.example.fooddelivery.User.Request;
+import com.example.fooddelivery.Model.Order;
+import com.example.fooddelivery.Model.Request;
 import com.example.fooddelivery.ViewHolder.CartAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

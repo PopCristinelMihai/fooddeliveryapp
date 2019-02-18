@@ -6,10 +6,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.fooddelivery.Interface.ItemClickListener;
-import com.example.fooddelivery.User.Food;
+import com.example.fooddelivery.Model.Food;
 import com.example.fooddelivery.ViewHolder.FoodViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;

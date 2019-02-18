@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.example.fooddelivery.Interface.ItemClickListener;
 import com.example.fooddelivery.R;
-import com.example.fooddelivery.User.Order;
+import com.example.fooddelivery.Model.Order;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;

@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.fooddelivery.Common.Common;
-import com.example.fooddelivery.User.Request;
+import com.example.fooddelivery.Model.Request;
 import com.example.fooddelivery.ViewHolder.OrderViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;

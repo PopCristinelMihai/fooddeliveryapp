@@ -1,4 +1,4 @@
-package com.example.fooddelivery.User;
+package com.example.fooddelivery.Model;
 
 public class Order {
     private String ProductId;
