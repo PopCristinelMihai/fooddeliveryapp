@@ -5,29 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/my_bg"
+    android:background="@drawable/homie_delivery_ricardo_edision"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        
-            <ImageView
-                android:src="@drawable/logo_eat_it"
-                android:layout_width="200dp"
-                android:layout_height="200dp" />
-        
-            <TextView
-                android:gravity="center"
-                android:id="@+id/txtSlogan"
-                android:text="@string/slogan"
-                android:textColor="@android:color/white"
-                android:layout_width="200dp"
-                android:layout_height="200dp" />
-        
-    </LinearLayout>
+        android:layout_height="wrap_content"/>
 
     <LinearLayout
         android:layout_width="match_parent"
