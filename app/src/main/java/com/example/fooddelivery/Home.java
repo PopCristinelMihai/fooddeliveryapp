@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.example.fooddelivery.Common.Common;
 import com.example.fooddelivery.Interface.ItemClickListener;
 import com.example.fooddelivery.User.Category;
+import com.example.fooddelivery.User.Order;
 import com.example.fooddelivery.User.User;
 import com.example.fooddelivery.ViewHolder.MenuViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -163,13 +164,21 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_menu) {
-            // Handle the camera action
-        } else if (id == R.id.nav_cart) {
 
+        } else if (id == R.id.nav_cart) {
+            //Go to order from the sliding menu
+            Intent cartIntent=new Intent(Home.this,Cart.class);
+            startActivity(cartIntent);
         } else if (id == R.id.nav_orders) {
+            Intent orderIntent=new Intent(Home.this, OrderStatus.class);
+            startActivity(orderIntent);
+
 
         } else if (id == R.id.nav_log_out) {
-
+            //Logout from the sliding menu
+            Intent signIn=new Intent(Home.this,SignIn.class);
+            signIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(signIn);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
