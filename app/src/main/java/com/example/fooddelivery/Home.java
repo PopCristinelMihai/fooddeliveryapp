@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.example.fooddelivery.Common.Common;
 import com.example.fooddelivery.Interface.ItemClickListener;
 import com.example.fooddelivery.Model.Category;
+import com.example.fooddelivery.Service.ListenOrder;
 import com.example.fooddelivery.ViewHolder.MenuViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -86,6 +87,9 @@ public class Home extends AppCompatActivity
 
         loadMenu();
 
+        //Register Service
+        Intent service=new Intent(Home.this, ListenOrder.class);
+        startService(service);
 
     }
 

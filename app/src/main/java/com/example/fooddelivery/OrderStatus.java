@@ -40,12 +40,16 @@ public class OrderStatus extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        loadOrder(Common.currentUser.getPhone());
-
+        //If we start OrderStatus activity from Home Activity
+        //We won't put any extra, so we just load order by phone from common
+        if(getIntent()==null)
+            loadOrders(Common.currentUser.getPhone());
+        else
+            loadOrders(getIntent().getStringExtra("userPhone"));
 
     }
 
-    private void loadOrder(String phone) {
+    private void loadOrders(String phone) {
         adapter = new FirebaseRecyclerAdapter<Request, OrderViewHolder>(
                 Request.class,
                 R.layout.order_layout,
@@ -57,7 +61,7 @@ public class OrderStatus extends AppCompatActivity {
             protected void populateViewHolder(OrderViewHolder viewHolder, Request model, int position) {
 
                 viewHolder.txtOrderId.setText(adapter.getRef(position).getKey());
-                viewHolder.txtOrderStatus.setText(convertCodeToStatus(model.getStatus()));
+                viewHolder.txtOrderStatus.setText(Common.convertCodeToStatus(model.getStatus()));
                 viewHolder.txtOrderAddress.setText(model.getAddress());
                 viewHolder.txtOrderPhone.setText(model.getPhone());
 
@@ -67,13 +71,6 @@ public class OrderStatus extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private String convertCodeToStatus(@NotNull String status) {
-        if (status.equals("0"))
-            return "Placed";
-        else if (status.equals("1"))
-            return "Delivering";
-        else
-            return "Delivered";
-    }
+
 }
 

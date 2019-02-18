@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -64,7 +65,10 @@ public class Cart extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                showAlertDialog();
+                if(cart.size()>0)
+                    showAlertDialog();
+                else
+                    Toast.makeText(Cart.this,"Your cart is empty!",Toast.LENGTH_SHORT).show();
             };
         });
 
@@ -125,6 +129,7 @@ public class Cart extends AppCompatActivity {
     private void loadListFood() {
         cart=new Database(this).getCarts();
         adapter=new CartAdapter(cart,this);
+        adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
         //calculate total
         int total=0;
@@ -134,5 +139,22 @@ public class Cart extends AppCompatActivity {
         NumberFormat fmt=NumberFormat.getCurrencyInstance(locale);
 
         txtTotalPrice.setText(fmt.format(total));
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        if(item.getTitle().equals(Common.DELETE))
+            deleteCart(item.getOrder());
+        return true;
+    }
+
+    private void deleteCart(int position) {
+        cart.remove(position);
+
+        new Database(this).cleanCart();
+
+        for(Order item:cart)
+            new Database(this).addToCart(item);
+        loadListFood();
     }
 }
